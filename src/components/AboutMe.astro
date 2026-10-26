@@ -1,9 +1,14 @@
-
 ---
-const personalImageAlt = "Haisiuleth Alexandra"
+const personalImageAlt = "Haisiuleth Alexandra";
+
+const base = import.meta.env.BASE_URL.endsWith("/")
+  ? import.meta.env.BASE_URL
+  : `${import.meta.env.BASE_URL}/`;
 ---
 
-<article class="flex flex-col items-center justify-center gap-8 text-gray-300 md:flex-row">
+<article
+  class="flex flex-col items-center justify-center gap-8 text-gray-300 md:flex-row"
+>
   <div
     class="[&>p]:mb-4
            [&>p>strong]:text-indigo-400
@@ -19,11 +24,12 @@ const personalImageAlt = "Haisiuleth Alexandra"
     </p>
 
     <p>
-      Mi experiencia combina el desarrollo técnico, la integración de plataformas
-      y el análisis de necesidades del negocio. También he trabajado con
+      Mi experiencia combina el desarrollo técnico, la integración de
+      plataformas y el análisis de necesidades del negocio. También he trabajado
+      con
       <strong>Salesforce, Emarsys y sistemas ERP</strong>, además de apoyar la
-      configuración de soluciones y el acompañamiento a clientes en proyectos
-      de e-commerce.
+      configuración de soluciones y el acompañamiento a clientes en proyectos de
+      e-commerce.
     </p>
 
     <p>
@@ -34,13 +40,12 @@ const personalImageAlt = "Haisiuleth Alexandra"
     </p>
   </div>
 
-
-<img
-  width="200"
-  height="200"
-  src={`${import.meta.env.BASE_URL}alexa.png`}
-  alt="Haisiuleth Alexandra"
-  class="order-1 object-cover w-64 h-full p-1 md:order-2 rotate-3 lg:p-2 lg:w-64 aspect-square rounded-2xl bg-black/20 dark:bg-indigo-500/5 ring-1 ring-white/10"
-  style="object-position: 50% 50%"
-/>
+  <img
+    width="200"
+    height="200"
+    src={`${base}alexa.png`}
+    alt="Haisiuleth Alexandra"
+    class="order-1 object-cover w-64 h-full p-1 md:order-2 rotate-3 lg:p-2 lg:w-64 aspect-square rounded-2xl bg-black/20 dark:bg-indigo-500/5 ring-1 ring-white/10"
+    style="object-position: 50% 50%"
+  />
 </article>
