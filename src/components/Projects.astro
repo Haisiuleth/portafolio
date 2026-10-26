@@ -27,7 +27,6 @@ const TAGS = {
   },
 };
 
-
 const PROJECTS = [
   {
     title: "Portal B2B Integrado a SAP",
@@ -36,7 +35,7 @@ const PROJECTS = [
       "Desarrollo e integración de un portal B2B para facilitar la autogestión de clientes empresariales.",
     fullDescription:
       "Participé en el desarrollo de un portal B2B de autogestión integrado con SAP ERP, orientado a facilitar los procesos comerciales de clientes empresariales. Trabajé en tareas de desarrollo e integración utilizando React, Node.js y TypeScript, contribuyendo a funcionalidades relacionadas con pedidos, facturación y consulta de información comercial.",
-    image: "/project.png",
+    image: `${import.meta.env.BASE_URL}project.png`,
     tags: [TAGS.REACT, TAGS.NODE, TAGS.AWS, TAGS.SAP],
     stats: [
       { label: "Tipo de solución", value: "Portal B2B" },
@@ -52,7 +51,7 @@ const PROJECTS = [
       "Integración de Salesforce con plataformas eCommerce y otros sistemas para facilitar el intercambio de información.",
     fullDescription:
       "Participé en desarrollos de integración entre Salesforce y otros sistemas, apoyando la comunicación y el intercambio de información entre plataformas. Mi experiencia se ha enfocado en el desarrollo técnico de integraciones y en la conexión de soluciones dentro de ecosistemas empresariales, contribuyendo a mejorar la continuidad de los flujos de información.",
-    image: "/sso.png",
+    image: `${import.meta.env.BASE_URL}sso.png`,
     tags: [TAGS.NODE, TAGS.AWS],
     stats: [
       { label: "Solución", value: "Integración de sistemas" },
@@ -68,7 +67,7 @@ const PROJECTS = [
       "Integración de 13 tiendas eCommerce con Emarsys para conectar datos y habilitar acciones de marketing automatizado.",
     fullDescription:
       "Participé en la integración de 13 tiendas eCommerce con Emarsys mediante Web Extend y herramientas de integración. El trabajo permitió conectar información relevante para iniciativas de marketing automation, como la captación de leads, el carrito abandonado y el comportamiento de navegación. También brindé acompañamiento técnico y capacitaciones a clientes para facilitar la configuración y el uso de las soluciones implementadas.",
-    image: "/webExtend.png",
+    image: `${import.meta.env.BASE_URL}webExtend.png`,
     tags: [TAGS.VTEX, TAGS.EMARSYS, TAGS.AWS, TAGS.NODE],
     stats: [
       { label: "Tiendas integradas", value: "13" },
@@ -84,7 +83,7 @@ const PROJECTS = [
       "Análisis funcional, configuración de herramientas y acompañamiento a clientes en soluciones de e-commerce y marketing automation.",
     fullDescription:
       "Participé en proyectos de consultoría funcional de e-commerce, combinando análisis de requerimientos, desarrollo técnico, configuración de plataformas y acompañamiento a clientes. Trabajé con herramientas como Emarsys y VTEX en iniciativas relacionadas con flujos automatizados, segmentación y campañas de marketing, apoyando la implementación de soluciones alineadas con las necesidades del negocio.",
-    image: "/marketing.png",
+    image: `${import.meta.env.BASE_URL}marketing.png`,
     tags: [TAGS.EMARSYS, TAGS.VTEX, TAGS.SAP],
     stats: [
       { label: "Responsabilidad", value: "Consultoría funcional" },
@@ -94,7 +93,6 @@ const PROJECTS = [
     color: "from-purple-500 to-indigo-500",
   },
 ];
-
 ---
 
 <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
@@ -246,40 +244,37 @@ const PROJECTS = [
           </div>
 
           {/* Footer con acción */}
-   <footer class="pt-4 border-t border-white/10">
+          <footer class="pt-4 border-t border-white/10">
+            <details class="group text-sm">
+              <summary class="flex items-center justify-between cursor-pointer text-indigo-400 font-medium">
+                <span class="flex items-center gap-2 text-xs text-gray-500">
+                  <span class="w-1.5 h-1.5 bg-green-500 rounded-full animate-pulse" />
+                  Proyecto en producción
+                </span>
 
-  <details class="group text-sm">
-    
-    <summary class="flex items-center justify-between cursor-pointer text-indigo-400 font-medium">
-      
-      <span class="flex items-center gap-2 text-xs text-gray-500">
-        <span class="w-1.5 h-1.5 bg-green-500 rounded-full animate-pulse" />
-        Proyecto en producción
-      </span>
+                <span class="flex items-center gap-1">
+                  Saber más
+                  <svg
+                    class="w-4 h-4 transition-transform duration-300 group-open:rotate-90"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M9 5l7 7-7 7"
+                    />
+                  </svg>
+                </span>
+              </summary>
 
-      <span class="flex items-center gap-1">
-        Saber más
-        <svg
-          class="w-4 h-4 transition-transform duration-300 group-open:rotate-90"
-          fill="none"
-          stroke="currentColor"
-          viewBox="0 0 24 24"
-        >
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-            d="M9 5l7 7-7 7" />
-        </svg>
-      </span>
-
-    </summary>
-
-    <p class="mt-4 text-gray-400 leading-relaxed">
-      {project.fullDescription}
-    </p>
-
-  </details>
-
-</footer>
-
+              <p class="mt-4 text-gray-400 leading-relaxed">
+                {project.fullDescription}
+              </p>
+            </details>
+          </footer>
         </div>
       </article>
     ))
