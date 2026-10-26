@@ -21,86 +21,41 @@ import AboutMe from "../components/AboutMe.astro";
 	title="Haisiuleth Alexandra | Desarrolladora Full Stack e Integraciones SAP"
 	description="Desarrolladora de software con experiencia en Full Stack, SAP BTP, Node.js, TypeScript, integraciones empresariales, Salesforce y plataformas e-commerce B2B/B2C con VTEX."
 >
-	<SectionContainer>
-		<h1
-			class="text-white text-3xl sm:text-4xl md:text-5xl font-bold flex flex-col sm:flex-row gap-3 pb-7"
-		>
-			Haisiuleth Alexandra <a
-				href="https://www.linkedin.com/in/haisiuleth/"
-				target="_blank"
-				rel="noopener"
-				class="flex justify-center items-center"
-				><Badge>Disponible para nuevos retos</Badge></a
-			>
+
+<main>
+
+		<section class="w-full mx-auto lg:w-[740px] py-44">
+
+
+		<h1 class="text-white text-5xl font-bold flex flex-row gap-x-4 pb-7">
+			Hey, I'm Haisiuleth <a href="https://www.linkedin.com/in/haisiuleth/" target="_blank" rel="noopener"
+			 class="flex justify-center items-center"><Badge>Disponible para nuevos retos</Badge></a>
 		</h1>
-		<h2 class="text-2xl text-wrap leading-relaxed">
-			<h2 class="text-2xl text-wrap leading-relaxed">
-				<span class="block text-white/90">
-					+4 años de experiencia en tecnología y soluciones digitales
-				</span>
+		<h2 class="text-2xl text-wrap">
+			<span>+4 años de experiencia como</span> <span class="text-indigo-400/90 opacity-80">Desarrolladora Web y Consultora de Ecommerce. en el sector retail</span>
+			<span class="text-gray">De Bogotá, Colombia</span>
 
-				<span
-					class="block mt-2 text-indigo-400/90 opacity-90 font-medium"
-				>
-					Desarrolladora Full Stack | Consultora Técnica de E-commerce
-					e Integraciones
-				</span>
-
-				<span class="block mt-3 text-lg text-white/70 leading-relaxed">
-					Desarrollo aplicaciones web, integro sistemas empresariales
-					y trabajo con plataformas de comercio electrónico para
-					conectar procesos y mejorar la experiencia digital.
-					Experiencia con SAP BTP, Node.js, TypeScript, SAPUI5,
-					Salesforce, APIs y VTEX, en soluciones B2B y B2C.
-				</span>
-
-				<span class="block text-white/50 mt-3 text-base">
-					Bogotá, Colombia · Remoto e híbrido
-				</span>
-			</h2>
-
-			<nav class="flex flex-wrap gap-2 sm:gap-3 mt-6">
-				<SocialP href="https://www.linkedin.com/in/haisiuleth/">
-					<LinkedIn class="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6" />
-
-					LinkedIn
-				</SocialP>
-				<SocialP href="https://github.com/haisiuleth">
-					<GitHub class="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6" />
-					GitHub
-				</SocialP>
-				<SocialP href="https://www.instagram.com/haisiuleth/">
-					<Instagram class="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6" />
-					Instagram
-				</SocialP>
-				<SocialP href="mailto:haisiuleth@gmail.com">
-					<Mailcon class="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6" />
-					haisiuleth@gmail.com
-				</SocialP>
-			</nav>
 		</h2>
-	</SectionContainer>
-	<SectionContainer id="experiencia">
-		<TitleSection>
-			<Briefcase class="size-8" />
-			Experiencia laboral
-		</TitleSection>
-		<Experience />
-	</SectionContainer>
 
-	<SectionContainer id="proyectos">
-		<TitleSection>
-			<ProfileCheck class="size-7" />
-			Proyectos
-		</TitleSection>
-		<Projects />
-	</SectionContainer>
-
-	<SectionContainer id="sobre-mi">
-		<TitleSection>
-			<ProfileCheck class="size-8" />
-			Sobre mí
-		</TitleSection>
-		<AboutMe />
-	</SectionContainer>
+		<nav class="flex gap-x-3 mt-6">
+			<SocialP href="https://www.linkedin.com/in/haisiuleth/">
+				<LinkedIn class="w-6 h-6"/>
+				LinkedIn 
+			</SocialP>
+			<SocialP href="https://github.com/haisiuleth">
+				<GitHub class="w-6 h-6"/>
+				GitHub
+			</SocialP>
+			<SocialP href="https://www.instagram.com/haisiuleth/">
+				<Instagram class="w-6 h-6"/>
+				Instagram 
+			</SocialP>
+			<SocialP href="">
+				<Mailcon class="w-6 h-6"/>
+				haisiuleth@gmail.com
+			</SocialP>
+		</nav>
+		
+		</section>
+	</main>
 </Layout>
