@@ -56,9 +56,11 @@ Seguir creciendo en desarrollo Full Stack, backend, integraciones empresariales 
 
 ## 📬 Contacto
 
-- **LinkedIn:** [Agrega aquí tu perfil de LinkedIn](https://www.linkedin.com/)
-- **GitHub:** [Agrega aquí tu perfil de GitHub](https://github.com/)
+- **LinkedIn:** https://www.linkedin.com/in/haisiuleth/
+
 
 ---
 
 Desarrollado con **Astro** y tecnologías web modernas.
+
+2026 Haisiuleth
