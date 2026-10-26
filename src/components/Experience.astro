@@ -1,0 +1,41 @@
+---
+import ExperienceItem from "./ExperienceItem.astro"
+
+
+const EXPERIENCE = [
+  {
+    date: "Abril 2025 – Actualidad",
+    title: "Desarrolladora Full Stack | Integraciones",
+    company: "Indra / Minsait",
+    description:
+      "Participo en el desarrollo de soluciones empresariales y en la integración de sistemas mediante Node.js, TypeScript y tecnologías SAP. Desarrollo funcionalidades backend y frontend, trabajo con APIs y contribuyo a la conexión entre aplicaciones y servicios empresariales. También participo en el mantenimiento evolutivo de las aplicaciones, la resolución de incidencias y la implementación de ajustes técnicos y funcionales según los requerimientos del proyecto.",
+  },
+  {
+    date: "Diciembre 2022 – Abril 2025",
+    title: "Desarrolladora Full Stack | Consultora Funcional E-commerce",
+    company: "MQA Business Consultants S.A.",
+    description:
+      "Participé en proyectos de comercio electrónico sobre VTEX, combinando el desarrollo de soluciones técnicas con actividades de consultoría funcional. Colaboré en el análisis de requerimientos de negocio, la implementación de funcionalidades y la integración de la plataforma con ERP y sistemas externos. Trabajé en soluciones relacionadas con procesos logísticos, generación y seguimiento de guías e integraciones con Emarsys para marketing automation, captura de leads y recuperación de carritos abandonados. Participé en proyectos de retail y en soluciones para canales B2B y B2C, conectando las necesidades del negocio con las soluciones tecnológicas.",
+  },
+  {
+    date: "Proyecto destacado",
+    title: "Desarrolladora Full Stack | Portal B2B",
+    company: "Confidencial",
+    description:
+      "Participé en el desarrollo de un portal de clientes B2B orientado a la autogestión de pedidos, la consulta de facturación y los estados de cuenta. Implementé funcionalidades con React, Node.js y TypeScript y trabajé en la integración de procesos comerciales con sistemas empresariales. La solución buscaba facilitar el acceso de los clientes corporativos a su información y simplificar sus consultas y operaciones.",
+  },
+]
+
+---
+
+
+
+<ol class="relative mt-16">
+  {
+    EXPERIENCE.map((experience) => (
+      <li>
+        <ExperienceItem {...experience} />
+      </li>
+    ))
+  }
+</ol>

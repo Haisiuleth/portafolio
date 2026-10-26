@@ -1,0 +1,12 @@
+---
+interface Props {
+  class?: string;
+}
+---
+
+<h2 class="flex items-center gap-3 text-2xl md:text-3xl font-bold text-gray-900 dark:text-white mb-8 md:mb-10">
+  <slot name="icon" />
+  <span class="bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent">
+    <slot />
+  </span>
+</h2>

@@ -1,0 +1,277 @@
+---
+// Header.astro
+interface Props {
+    hideOnScroll?: boolean;
+    variant?: "default" | "minimal";
+}
+
+const { hideOnScroll = true, variant = "default" } = Astro.props;
+
+interface NavItem {
+    title: string;
+    label: string;
+    url: string;
+    isExternal?: boolean;
+}
+
+const navItems: NavItem[] = [
+    {
+        title: "Inicio",
+        label: "inicio",
+        url: "/",
+    },
+    {
+        title: "Experiencia",
+        label: "experiencia",
+        url: "/#experiencia",
+    },
+    {
+        title: "Proyectos",
+        label: "proyectos",
+        url: "/#proyectos",
+    },
+    {
+        title: "Sobre mí",
+        label: "sobre-mi",
+        url: "/#sobre-mi",
+    },
+    {
+        title: "Contacto",
+        label: "contacto",
+        url: "mailto:haisiuleth@gmail.com",
+        isExternal: true, 
+    },
+];
+---
+
+<header
+    class:list={[
+        "flex justify-between items-center py-4 w-full max-w-[1120px] mx-auto px-4 md:px-6 transition-all duration-300",
+        hideOnScroll && "header-scroll",
+        variant === "minimal" && "py-3",
+    ]}
+>
+    <!-- Logo / Foto -->
+    <a href="/" class="flex-shrink-0" aria-label="Ir al inicio">
+        <img
+            class="rounded-full w-12 h-12 object-cover ring-2 ring-indigo-400/30 hover:ring-indigo-400 transition-all"
+            src="/profile.jpeg" 
+            alt="Haisiuleth Photo"
+            loading="eager"
+        />
+    </a>
+
+    <!-- Navegación Desktop -->
+    <nav
+        class="hidden md:flex items-center gap-x-8 lg:gap-x-10"
+        aria-label="Navegación principal"
+    >
+        {
+            navItems.map((item) => (
+                <a
+                    href={item.url}  
+                    class:list={[
+                        "text-gray-700 dark:text-gray-300 hover:text-indigo-600 dark:hover:text-indigo-400",
+                        "font-medium transition-colors duration-200 text-sm lg:text-base",
+                        "relative after:absolute after:bottom-[-4px] after:left-0 after:w-0 after:h-[2px]",
+                        "after:bg-indigo-600 dark:after:bg-indigo-400 after:transition-all after:duration-300",
+                        "hover:after:w-full",
+                    ]}
+                    {...(item.isExternal && {
+                        target: "_blank",
+                        rel: "noopener noreferrer",
+                    })}
+                >
+                    {item.title} 
+                </a>
+            ))
+        }
+    </nav>
+
+    <!-- Botón menú móvil -->
+    <button
+        class="md:hidden p-2 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-800 transition-colors"
+        id="menu-toggle"
+        aria-label="Abrir menú"
+        aria-expanded="false"
+    >
+        <svg
+            class="w-6 h-6"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+        >
+            <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M4 6h16M4 12h16M4 18h16"
+            />
+        </svg>
+    </button>
+</header>
+
+<!-- Menú móvil -->
+<!-- Menú móvil -->
+<div
+    id="mobile-menu"
+    class="md:hidden fixed inset-x-0 top-[72px] 
+bg-slate-950 text-white
+border-b border-white/10
+transform transition-transform duration-300 -translate-y-full"
+
+    hidden
+>
+    <nav class="flex flex-col p-6 space-y-4 max-w-[1120px] mx-auto">
+        {
+            navItems
+                .filter(item => item.label === "contacto") // 👈 SOLO MUESTRA CONTACTO
+                .map((item) => (
+                    <a
+                        href={item.url} 
+                        class="text-indigo-600 dark:text-indigo-400 py-4 text-lg font-semibold transition-colors border-2 border-indigo-200 dark:border-indigo-900 rounded-xl text-center hover:bg-indigo-50 dark:hover:bg-indigo-950/50"
+                        {...(item.isExternal && {
+                            target: "_blank",
+                            rel: "noopener noreferrer",
+                        })}
+                    >
+                        📧 {item.title}  
+                    </a>
+                ))
+        }
+    </nav>
+</div>
+
+<style is:global>
+    /* Animación scroll mejorada */
+    .header-scroll {
+        animation: blur linear both;
+        animation-timeline: scroll();
+        animation-range: 0 200px;
+        position: sticky;
+        top: 0;
+        z-index: 50;
+    }
+
+    @keyframes blur {
+        0% {
+            background: transparent;
+            backdrop-filter: blur(0);
+            border: 0px solid transparent;
+            box-shadow: none;
+            padding-top: 1rem;
+            padding-bottom: 1rem;
+        }
+        100% {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(229, 231, 235, 0.5);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+            padding-top: 0.75rem;
+            padding-bottom: 0.75rem;
+            border-radius: 9999px;
+            width: 90%;
+            left: 5%;
+        }
+    }
+
+    @media (prefers-color-scheme: dark) {
+        @keyframes blur {
+            100% {
+                background: rgba(17, 24, 39, 0.8);
+                backdrop-filter: blur(12px);
+                border: 1px solid rgba(55, 65, 81, 0.5);
+                box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+                border-radius: 9999px;
+                width: 90%;
+                left: 5%;
+            }
+        }
+    }
+
+    /* Transiciones suaves para el tema */
+    * {
+        transition:
+            background-color 0.2s ease,
+            border-color 0.2s ease,
+            box-shadow 0.2s ease;
+    }
+
+    /* Mejora para links activos */
+    .nav-link-active {
+        @apply text-indigo-600 dark:text-indigo-400;
+    }
+    
+    .nav-link-active::after {
+        width: 100% !important;
+    }
+</style>
+
+<script>
+    // Script para menú móvil
+    document.addEventListener("DOMContentLoaded", () => {
+        const toggle = document.getElementById("menu-toggle");
+        const menu = document.getElementById("mobile-menu");
+
+        if (toggle && menu) {
+            toggle.addEventListener("click", () => {
+                const isExpanded = toggle.getAttribute("aria-expanded") === "true";
+                toggle.setAttribute("aria-expanded", (!isExpanded).toString());
+
+                if (!isExpanded) {
+                    menu.hidden = false;
+                    setTimeout(() => {
+                        menu.classList.remove("-translate-y-full");
+                    }, 10);
+                } else {
+                    menu.classList.add("-translate-y-full");
+                    setTimeout(() => {
+                        menu.hidden = true;
+                    }, 300);
+                }
+            });
+
+            // Cerrar menú al hacer click en un link
+            const mobileLinks = menu.querySelectorAll("a");
+            mobileLinks.forEach(link => {
+                link.addEventListener("click", () => {
+                    menu.classList.add("-translate-y-full");
+                    setTimeout(() => {
+                        menu.hidden = true;
+                    }, 300);
+                    toggle.setAttribute("aria-expanded", "false");
+                });
+            });
+        }
+    });
+
+    // Intersection Observer para sección activa
+    document.addEventListener("astro:page-load", () => {
+        const sections = document.querySelectorAll("section[id]");
+        const navLinks = document.querySelectorAll("header nav a");
+        
+        if (!sections.length) return;
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    const id = entry.target.id;
+                    
+                    navLinks.forEach((link) => {
+                        const href = link.getAttribute("href");
+                        link.classList.remove("nav-link-active", "text-indigo-600", "dark:text-indigo-400");
+                        
+                        if (href?.includes(id)) {
+                            link.classList.add("nav-link-active", "text-indigo-600", "dark:text-indigo-400");
+                        }
+                    });
+                }
+            });
+        }, {
+            rootMargin: "-20% 0px -35% 0px",
+            threshold: 0.1,
+        });
+
+        sections.forEach((section) => observer.observe(section));
+    });
+</script>
