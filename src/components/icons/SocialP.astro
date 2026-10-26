@@ -1,10 +1,13 @@
 
 <a
-  class="rounded-full border border-white/10 flex justify-center items-center
-         gap-x-2 py-2 px-3 bg-white/5 text-white
-         hover:scale-110 hover:bg-purple/10 transition"
+  class="social-link rounded-full border border-white/10
+         flex justify-center items-center gap-x-2 py-2 px-3
+         text-white
+         bg-gradient-to-r from-indigo-500/15 via-purple-500/10 to-transparent
+         hover:from-indigo-500/30 hover:via-purple-500/20 hover:to-transparent
+         hover:border-indigo-400/40
+         hover:scale-105 transition-all duration-300"
   {...Astro.props}
-  target="_blank"
   rel="noopener noreferrer"
 >
   <slot />
